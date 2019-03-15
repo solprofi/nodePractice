@@ -5,6 +5,16 @@ const url = require('url');
 const fs = require('fs');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
+const lib = require('./lib/data');
+
+//test
+// lib.create('text', 'newFile', { 'name': 'Roman' }, error => {
+//   console.log('there was an error', error);
+// });
+
+// lib.delete('test', 'newFile', (error) => {
+//   console.log('there was an error', error);
+// });
 
 
 const unifiedServer = (req, res) => {
