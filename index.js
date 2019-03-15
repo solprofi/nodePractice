@@ -97,9 +97,8 @@ httpsServer.listen(config.httpsPort, () => {
 //define the handlers
 let handlers = {};
 
-handlers.sample = (data, callback) => {
-  //callback the http status code and a payload
-  callback(406, { name: 'Roman' });
+handlers.ping = (data, callback) => {
+  callback(200);
 }
 
 //define the not found handler
@@ -109,5 +108,5 @@ handlers.notFound = (data, callback) => {
 
 //define the router
 const router = {
-  'sample': handlers.sample
+  'ping': handlers.ping
 }
