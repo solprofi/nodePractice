@@ -1,6 +1,7 @@
 //dependencies
 const http = require('http');
 const url = require('url');
+const StringDecoder = require('string_decoder').StringDecoder;
 
 //the server responds to all requests with a string
 const server = http.createServer((req, res) => {
@@ -22,12 +23,28 @@ const server = http.createServer((req, res) => {
   //get the headers
   const headers = req.headers;
 
-  //send the response
-  res.end('response\n\n');
+  //get the payload
+  const decoder = new StringDecoder('utf-8');
+  let buffer = '';
 
-  //log the requested path
-  console.log(`The server received a request for path ${trimmedPath} with method ${method} with query parameters`, queryObject);
-  console.log(`The request headers: ${JSON.stringify(headers)}`);
+  req.on('data', data => {
+    buffer += decoder.write(data);
+  });
+
+  req.on('end', () => {
+    buffer += decoder.end();
+
+    //send the response
+    res.end('response\n\n');
+
+    //log the requested path
+    console.log(`The server received a request for path ${trimmedPath} with method ${method} with query parameters`, queryObject);
+    console.log(`\nThe request headers: ${JSON.stringify(headers)}\n`);
+    console.log(`Request payload:`, buffer);
+  })
+
+
+
 });
 
 //start the server and listen on port 3000
