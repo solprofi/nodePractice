@@ -5,6 +5,8 @@ const url = require('url');
 const fs = require('fs');
 const StringDecoder = require('string_decoder').StringDecoder;
 const config = require('./config');
+const handlers = require('./lib/handlers');
+const helpers = require('./lib/helpers');
 
 const unifiedServer = (req, res) => {
   //parse the url
@@ -41,11 +43,11 @@ const unifiedServer = (req, res) => {
 
     //construct the data object
     const data = {
-      'payload': buffer,
-      'method': method,
-      'trimmedPath': trimmedPath,
-      'queryObject': queryObject,
-      'headers': headers,
+      payload: helpers.parseJsonToObj(buffer),
+      method,
+      trimmedPath,
+      queryObject,
+      headers,
     };
 
     //call the router
@@ -93,19 +95,8 @@ httpsServer.listen(config.httpsPort, () => {
   console.log(`the https server is listening on port ${config.httpsPort} in ${config.envName} mode`);
 });
 
-//define the handlers
-let handlers = {};
-
-handlers.ping = (data, callback) => {
-  callback(200);
-}
-
-//define the not found handler
-handlers.notFound = (data, callback) => {
-  callback(404);
-}
-
 //define the router
 const router = {
-  'ping': handlers.ping
+  'ping': handlers.ping,
+  'users': handlers.users,
 }
