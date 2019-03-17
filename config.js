@@ -7,6 +7,7 @@ environments.staging = {
   httpsPort: 3001,
   envName: 'staging',
   hashingSecret: 'This is a hashing secret',
+  maxChecks: 5
 };
 
 //create production (default) env
@@ -15,6 +16,7 @@ environments.production = {
   httpsPort: 6001,
   envName: 'production',
   hashingSecret: 'This is a hashing secret',
+  maxChecks: 5,
 };
 
 //determine which env was passed into command line
