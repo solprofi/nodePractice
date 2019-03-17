@@ -7,7 +7,12 @@ environments.staging = {
   httpsPort: 3001,
   envName: 'staging',
   hashingSecret: 'This is a hashing secret',
-  maxChecks: 5
+  maxChecks: 5,
+  twilio: {
+    accountSid: 'ACf3c2cd3bfaaa4ae25633d26dad52742e',
+    authToken: '491eaae5a5a882824b6b260a14370058',
+    sender: '+12013471874',
+  }
 };
 
 //create production (default) env
@@ -17,6 +22,11 @@ environments.production = {
   envName: 'production',
   hashingSecret: 'This is a hashing secret',
   maxChecks: 5,
+  twilio: {
+    accountSid: 'ACf3c2cd3bfaaa4ae25633d26dad52742e',
+    authToken: '491eaae5a5a882824b6b260a14370058',
+    sender: '+12013471874',
+  }
 };
 
 //determine which env was passed into command line
