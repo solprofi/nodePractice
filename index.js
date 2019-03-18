@@ -1,14 +1,14 @@
-//dependencies
+// dependencies
 const server = require('./lib/server');
-// const workers = require('./lib/workers');
+const workers = require('./lib/workers');
 
-let app = {};
+const app = {};
 
 app.init = () => {
-  //start the server
+  // start the server
   server.init();
-  //start the workers
-  // workers.init();
+  // start the workers
+  workers.init();
 };
 
 app.init();
