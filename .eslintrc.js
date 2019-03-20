@@ -17,6 +17,7 @@ module.exports = {
     'no-underscore-dangle': 0,
     'no-shadow': 0,
     'no-param-reassign': 0,
-    'no-plusplus': 0
+    'no-plusplus': 0,
+    'func-names': 0
   }
 };
