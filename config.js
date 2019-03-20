@@ -13,6 +13,12 @@ environments.staging = {
     authToken: '491eaae5a5a882824b6b260a14370058',
     sender: '+12013471874',
   },
+  templateGlobals: {
+    appName: 'Uptime Checker',
+    companyName: 'Not a real company',
+    yearCreated: '2019',
+    baseUrl: 'http://localhost:3005',
+  },
 };
 
 // create production (default) env
@@ -26,6 +32,12 @@ environments.production = {
     accountSid: 'ACf3c2cd3bfaaa4ae25633d26dad52742e',
     authToken: '491eaae5a5a882824b6b260a14370058',
     sender: '+12013471874',
+  },
+  templateGlobals: {
+    appName: 'Uptime Checker',
+    companyName: 'Not a real company',
+    yearCreated: '2019',
+    baseUrl: 'http://localhost:6000',
   },
 };
 
