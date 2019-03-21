@@ -1,38 +1,11 @@
 // test runner
-
-// dependencies
-const assert = require('assert');
-const helpers = require('../lib/helpers');
-
 const _app = {};
 
 _app.tests = {
   unit: {},
 };
 
-// Assert getNumber returns 1
-_app.tests.unit['helpers.getNumber should return 1'] = (done) => {
-  const val = helpers.testNumber();
-
-  assert.equal(val, 1);
-  done();
-};
-
-// Assert getNumber returns a number
-_app.tests.unit['helpers.getNumber should return a number'] = (done) => {
-  const val = helpers.testNumber();
-
-  assert.equal(typeof (val), 'number');
-  done();
-};
-
-// Assert getNumber returns 2
-_app.tests.unit['helpers.getNumber should return 2'] = (done) => {
-  const val = helpers.testNumber();
-
-  assert.equal(val, 2);
-  done();
-};
+_app.tests.unit = require('./unit');
 
 _app.countTests = () => {
   let counter = 0;
