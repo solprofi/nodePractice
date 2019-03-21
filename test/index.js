@@ -1,11 +1,10 @@
 // test runner
 const _app = {};
 
-_app.tests = {
-  unit: {},
-};
+_app.tests = {};
 
 _app.tests.unit = require('./unit');
+_app.tests.api = require('./api');
 
 _app.countTests = () => {
   let counter = 0;
@@ -39,6 +38,8 @@ _app.produceTestReport = (limit, successes, errors) => {
 
     console.log('-------------------END ERROR DETAILS-------------------');
   }
+
+  process.exit(0);
 };
 
 // run all the tests

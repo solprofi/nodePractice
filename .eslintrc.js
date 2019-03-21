@@ -18,6 +18,7 @@ module.exports = {
     'no-shadow': 0,
     'no-param-reassign': 0,
     'no-plusplus': 0,
-    'func-names': 0
+    'func-names': 0,
+    'linebreak-style': 0,
   }
 };

@@ -5,7 +5,7 @@ const cli = require('./lib/cli');
 
 const app = {};
 
-app.init = () => {
+app.init = (callback) => {
   // start the server
   server.init();
   // start the workers
@@ -13,9 +13,13 @@ app.init = () => {
 
   setTimeout(() => {
     cli.init();
+    callback();
   }, 50);
 };
 
-app.init();
+// invoke only if called directly
+if (require.main === module) {
+  app.init(() => { });
+}
 
 module.exports = app;
